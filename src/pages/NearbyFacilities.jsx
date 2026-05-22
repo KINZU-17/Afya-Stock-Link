@@ -108,8 +108,13 @@ function NearbyFacilities() {
         <h2 className="text-2xl font-black"> Nearby Health Facilities</h2>
         <p className="text-blue-100 text-sm mt-1">
           Find hospitals, clinics, and pharmacies within 5km of your current
-          location.
+          location that have available stock of the medicines you need.
         </p>
+        <input
+          type="text"
+          placeholder="Search by medicine name, supplier, or category..."
+          className="flex-1 px-4 py-3 rounded-xl border border-slate-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-400/30 focus:border-hospital-teal text-sm bg-stone-100 text-black mt-4 h-10 w-full"
+        />
       </div>
 
       {/* Enable Location */}
