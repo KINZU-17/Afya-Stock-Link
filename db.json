@@ -1,14 +1,14 @@
 {
   "posts": [
     {
-      "id": 1,
+      "id": "1",
       "title": "json-server",
       "author": "typicode"
     }
   ],
   "comments": [
     {
-      "id": 1,
+      "id": "1",
       "body": "some comment",
       "postId": 1
     }
@@ -16,7 +16,6 @@
   "profile": {
     "name": "typicode"
   },
-
   "facility_info": {
     "name": "Nairobi South Sub-County Hospital",
     "region": "Embakasi South, Nairobi County",
@@ -32,7 +31,7 @@
       "description": "Broad-spectrum antibiotic for bacterial infections in pediatric and adult clinics.",
       "origin": "KEMSA Central Stores",
       "category": "Antibiotics",
-      "price": 450.00,
+      "price": 450,
       "quantity": 340,
       "expiry_date": "2025-11-30",
       "image": "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=500"
@@ -43,7 +42,7 @@
       "description": "Severe Malaria emergency intervention vials. High-priority critical care stock.",
       "origin": "Nairobi County Distribution Unit",
       "category": "Antimalarials",
-      "price": 1200.00,
+      "price": 1200,
       "quantity": 18,
       "expiry_date": "2025-08-15",
       "image": "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?w=500"
@@ -54,7 +53,7 @@
       "description": "Sterile packs with drapes, gauze, and scalpel for outpatient surgical theatres.",
       "origin": "Medvessel East Africa",
       "category": "Surgical Supplies",
-      "price": 850.00,
+      "price": 850,
       "quantity": 5,
       "expiry_date": "2026-06-01",
       "image": "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=500"
@@ -65,7 +64,7 @@
       "description": "First-line analgesic and antipyretic for fever and mild-to-moderate pain management.",
       "origin": "KEMSA Central Stores",
       "category": "Analgesics",
-      "price": 120.00,
+      "price": 120,
       "quantity": 1200,
       "expiry_date": "2026-03-20",
       "image": "https://images.unsplash.com/photo-1550572017-edd951b55104?w=500"
@@ -76,7 +75,7 @@
       "description": "WHO-formula rehydration salts for diarrhoea and dehydration treatment.",
       "origin": "UNICEF Supply Division",
       "category": "Rehydration",
-      "price": 35.00,
+      "price": 35,
       "quantity": 0,
       "expiry_date": "2025-12-01",
       "image": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=500"
@@ -87,7 +86,7 @@
       "description": "Freeze-dried live attenuated vaccine for neonatal TB prevention. Cold-chain required.",
       "origin": "Kenya National Vaccines Institute",
       "category": "Vaccines",
-      "price": 980.00,
+      "price": 980,
       "quantity": 42,
       "expiry_date": "2025-09-10",
       "image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500"
@@ -98,7 +97,7 @@
       "description": "First-line oral hypoglycaemic agent for Type 2 Diabetes management.",
       "origin": "KEMSA Central Stores",
       "category": "Diabetes",
-      "price": 210.00,
+      "price": 210,
       "quantity": 8,
       "expiry_date": "2026-01-15",
       "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500"
@@ -109,10 +108,11 @@
       "description": "Normal saline intravenous fluid for hydration and electrolyte correction.",
       "origin": "Medvessel East Africa",
       "category": "IV Fluids",
-      "price": 320.00,
+      "price": 320.0,
       "quantity": 150,
       "expiry_date": "2026-08-30",
       "image": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=500"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

@@ -1,8 +1,19 @@
 import React, { useState } from "react";
 import StockBadge, { getExpiryStatus } from "./StockBadge";
+import { Package, TriangleAlert } from "lucide-react";
 
 function ProductCard({ product, onUpdate, onDelete }) {
-  const { id, name, description, origin, category, price, quantity, expiry_date, image } = product;
+  const {
+    id,
+    name,
+    description,
+    origin,
+    category,
+    price,
+    quantity,
+    expiry_date,
+    image,
+  } = product;
   const [isEditing, setIsEditing] = useState(false);
   const [editFields, setEditFields] = useState({ price, quantity });
   const [saving, setSaving] = useState(false);
@@ -28,10 +39,10 @@ function ProductCard({ product, onUpdate, onDelete }) {
       .catch(() => setSaving(false));
   }
 
-  function handleDelete() {
-    if (!window.confirm(`Remove "${name}" from inventory?`)) return;
-    fetch(`http://localhost:3001/products/${id}`, { method: "DELETE" }).then(() =>
-      onDelete(id)
+  function handleDelete(e) {
+    e.preventDefault();
+    fetch(`http://localhost:3001/products/${id}`, { method: "DELETE" }).then(
+      () => onDelete(id),
     );
   }
 
@@ -44,7 +55,8 @@ function ProductCard({ product, onUpdate, onDelete }) {
           alt={name}
           className="w-full h-44 object-cover"
           onError={(e) => {
-            e.target.src = "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500";
+            e.target.src =
+              "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500";
           }}
         />
         <div className="absolute top-2 left-2">
@@ -62,36 +74,54 @@ function ProductCard({ product, onUpdate, onDelete }) {
       {/* Content */}
       <div className="p-5 flex flex-col flex-grow space-y-3">
         <div>
-          <h3 className="text-base font-bold text-slate-900 leading-tight">{name}</h3>
-          <p className="text-xs text-teal-700 font-semibold mt-1">📦 {origin}</p>
+          <h3 className="text-base font-bold text-slate-900 leading-tight">
+            {name}
+          </h3>
+          <p className="text-xs text-teal-700 font-semibold mt-1">
+            <Package size={16} className="inline mr-1" />
+            {origin}
+          </p>
         </div>
 
-        <p className="text-sm text-slate-500 line-clamp-2 flex-grow">{description}</p>
+        <p className="text-sm text-slate-500 line-clamp-2 flex-grow">
+          {description}
+        </p>
 
         <p className={`text-xs ${expiryStatus.color}`}>{expiryStatus.label}</p>
 
         {/* Edit form */}
         {isEditing ? (
-          <form onSubmit={handlePatchSubmit} className="space-y-2 pt-2 border-t border-slate-100">
+          <form
+            onSubmit={handlePatchSubmit}
+            className="space-y-2 pt-2 border-t border-slate-100"
+          >
             <div className="flex gap-2">
               <div className="flex-1">
-                <label className="text-xs text-slate-500 font-bold uppercase">Price (KES)</label>
+                <label className="text-xs text-slate-500 font-bold uppercase">
+                  Price (KES)
+                </label>
                 <input
                   type="number"
                   step="0.01"
                   value={editFields.price}
-                  onChange={(e) => setEditFields({ ...editFields, price: e.target.value })}
+                  onChange={(e) =>
+                    setEditFields({ ...editFields, price: e.target.value })
+                  }
                   className="w-full px-2 py-1.5 text-sm border rounded-lg focus:ring-1 focus:ring-hospital-teal mt-1"
                   required
                 />
               </div>
               <div className="flex-1">
-                <label className="text-xs text-slate-500 font-bold uppercase">Qty (Units)</label>
+                <label className="text-xs text-slate-500 font-bold uppercase">
+                  Qty (Units)
+                </label>
                 <input
                   type="number"
                   min="0"
                   value={editFields.quantity}
-                  onChange={(e) => setEditFields({ ...editFields, quantity: e.target.value })}
+                  onChange={(e) =>
+                    setEditFields({ ...editFields, quantity: e.target.value })
+                  }
                   className="w-full px-2 py-1.5 text-sm border rounded-lg focus:ring-1 focus:ring-hospital-teal mt-1"
                   required
                 />
@@ -117,9 +147,15 @@ function ProductCard({ product, onUpdate, onDelete }) {
         ) : (
           <div className="flex items-center justify-between pt-2 border-t border-slate-100">
             <div>
-              <span className="text-xs text-slate-400 font-bold uppercase">Unit Cost</span>
-              <p className="text-lg font-black text-slate-900">KES {price.toFixed(2)}</p>
-              <p className="text-xs text-slate-500">{quantity} units in stock</p>
+              <span className="text-xs text-slate-400 font-bold uppercase">
+                Unit Cost
+              </span>
+              <p className="text-lg font-black text-slate-900">
+                KES {price.toFixed(2)}
+              </p>
+              <p className="text-xs text-slate-500">
+                {quantity} units in stock
+              </p>
             </div>
             <button
               onClick={() => setIsEditing(true)}
@@ -135,7 +171,7 @@ function ProductCard({ product, onUpdate, onDelete }) {
           onClick={handleDelete}
           className="w-full bg-rose-50 text-rose-600 font-bold text-xs py-2.5 rounded-lg hover:bg-rose-100 transition-colors cursor-pointer"
         >
-          🗑g Flag as Depleted / Expired
+          Flag as Depleted / Expired
         </button>
       </div>
     </div>

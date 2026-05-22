@@ -119,7 +119,7 @@ function AddProductForm({ onAddProduct }) {
 
           <button type="submit" disabled={submitting}
             className="w-full bg-hospital-teal text-white font-bold py-3 rounded-xl hover:bg-teal-800 transition-colors text-sm disabled:opacity-60 cursor-pointer mt-2">
-            {submitting ? "Saving..." : "✅ Authorize Delivery Entry"}
+            {submitting ? "Saving..." : "Authorize Delivery Entry"}
           </button>
         </form>
       </div>

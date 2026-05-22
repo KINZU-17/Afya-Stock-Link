@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ALL_SYMPTOMS, diagnose } from "../data/symptomsData";
+import { Search, TriangleAlert, Stethoscope, Microscope } from "lucide-react";
 
 const SEVERITY_STYLES = {
   CRITICAL: "bg-red-600 text-white",
@@ -52,13 +53,14 @@ function SymptomChecker() {
     <div className="max-w-3xl mx-auto space-y-6">
       {/* Header */}
       <div className="bg-gradient-to-r from-hospital-teal to-teal-600 text-white rounded-2xl p-6 shadow-md">
-        <h2 className="text-2xl font-black">🩺 Symptom Checker</h2>
+        <h2 className="text-2xl font-black"><Microscope size={24} className="inline mr-2" /> Symptom Checker</h2>
         <p className="text-teal-100 text-sm mt-1">
           Select your symptoms below. Our diagnostic engine will identify
           possible conditions and recommend immediate action.
         </p>
         <div className="mt-3 bg-white/20 rounded-lg px-3 py-2 text-xs text-teal-100">
-          ⚠️ This tool is for guidance only and does not replace professional
+          <TriangleAlert size={16} className="inline mr-2" />
+          This tool is for guidance only and does not replace professional
           medical diagnosis.
         </div>
       </div>
@@ -122,7 +124,8 @@ function SymptomChecker() {
           onClick={handleDiagnose}
           className="flex-1 bg-hospital-teal text-white font-bold py-3 rounded-xl hover:bg-teal-800 transition-colors cursor-pointer"
         >
-          🔍 Run Diagnosis
+          <Search size={20} className="inline mr-2" />
+         Run Diagnosis
         </button>
         <button
           onClick={handleReset}
