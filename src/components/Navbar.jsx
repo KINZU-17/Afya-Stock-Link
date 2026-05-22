@@ -37,8 +37,8 @@ function Navbar() {
           <NavLink to="/" end className={linkStyle}>Dashboard</NavLink>
           <NavLink to="/products" className={linkStyle}>Inventory</NavLink>
           <NavLink to="/add-product" className={linkStyle}>+ Log Stock</NavLink>
-          <NavLink to="/symptom-checker" className={linkStyle}>🩺 Symptoms</NavLink>
-          <NavLink to="/nearby" className={linkStyle}>📍 Nearby</NavLink>
+          <NavLink to="/symptom-checker" className={linkStyle}>Symptoms</NavLink>
+          <NavLink to="/nearby" className={linkStyle}>Nearby</NavLink>
         </div>
 
         {/* User + Logout */}

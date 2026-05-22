@@ -63,7 +63,7 @@ function ProductCard({ product, onUpdate, onDelete }) {
       <div className="p-5 flex flex-col flex-grow space-y-3">
         <div>
           <h3 className="text-base font-bold text-slate-900 leading-tight">{name}</h3>
-          <p className="text-xs text-teal-700 font-semibold mt-1">📦 {origin}</p>
+          <p className="text-xs text-teal-700 font-semibold mt-1">{origin}</p>
         </div>
 
         <p className="text-sm text-slate-500 line-clamp-2 flex-grow">{description}</p>
@@ -135,7 +135,7 @@ function ProductCard({ product, onUpdate, onDelete }) {
           onClick={handleDelete}
           className="w-full bg-rose-50 text-rose-600 font-bold text-xs py-2.5 rounded-lg hover:bg-rose-100 transition-colors cursor-pointer"
         >
-          🗑g Flag as Depleted / Expired
+          Flag as Depleted / Expired
         </button>
       </div>
     </div>

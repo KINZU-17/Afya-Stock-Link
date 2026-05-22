@@ -42,22 +42,22 @@ function Home() {
     <div className="space-y-8">
       {/* Welcome Banner */}
       <div className="bg-gradient-to-r from-hospital-teal to-teal-600 text-white rounded-2xl p-6 shadow-md">
-        <p className="text-teal-200 text-sm font-semibold">Welcome back 👋</p>
+        <p className="text-teal-200 text-sm font-semibold">Welcome back</p>
         <h2 className="text-2xl font-black mt-1">{user?.name || "Staff Member"}</h2>
         <p className="text-teal-100 text-sm mt-1">{user?.role} — {facility?.name}</p>
         <div className="flex gap-4 mt-4 flex-wrap">
           <span className="bg-white/20 rounded-lg px-3 py-1 text-xs font-bold">MFL Code: {facility?.facility_code}</span>
-          <span className="bg-white/20 rounded-lg px-3 py-1 text-xs font-bold">📞 {facility?.emergency_contact}</span>
-          <span className="bg-white/20 rounded-lg px-3 py-1 text-xs font-bold">🛏 {facility?.beds} Beds · 👨‍⚕️ {facility?.staff} Staff</span>
+          <span className="bg-white/20 rounded-lg px-3 py-1 text-xs font-bold">{facility?.emergency_contact}</span>
+          <span className="bg-white/20 rounded-lg px-3 py-1 text-xs font-bold">{facility?.beds} Beds · {facility?.staff} Staff</span>
         </div>
       </div>
 
       {/* Stat Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard label="Total Items" value={totalItems} icon="📦" borderColor="border-teal-400" />
-        <StatCard label="Out of Stock" value={outOfStock} icon="🔴" borderColor="border-red-400" />
-        <StatCard label="Low Stock" value={lowStock} icon="🟠" borderColor="border-orange-400" />
-        <StatCard label="Inventory Value" value={`KES ${totalValue.toLocaleString()}`} icon="💰" borderColor="border-green-400" />
+        <StatCard label="Total Items" value={totalItems} icon="" borderColor="border-teal-400" />
+        <StatCard label="Out of Stock" value={outOfStock} icon="" borderColor="border-red-400" />
+        <StatCard label="Low Stock" value={lowStock} icon="" borderColor="border-orange-400" />
+        <StatCard label="Inventory Value" value={`KES ${totalValue.toLocaleString()}`} icon="" borderColor="border-green-400" />
       </div>
 
       {/* Facility Info */}
@@ -87,7 +87,7 @@ function Home() {
       {/* Critical Alerts */}
       {criticalItems.length > 0 && (
         <div className="bg-white rounded-xl p-6 border border-red-100 shadow-sm">
-          <h3 className="text-lg font-bold text-red-600 mb-4">🚨 Critical Stock Alerts</h3>
+          <h3 className="text-lg font-bold text-red-600 mb-4">Critical Stock Alerts</h3>
           <div className="space-y-3">
             {criticalItems.map((item) => {
               const status = getStockStatus(item.quantity);
@@ -113,10 +113,10 @@ function Home() {
       {/* Quick Actions */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {[
-          { to: "/products", icon: "📋", title: "View Inventory", sub: "Browse all medical stock" },
-          { to: "/add-product", icon: "➕", title: "Log Inbound Stock", sub: "Register new supply batch" },
-          { to: "/symptom-checker", icon: "🩺", title: "Symptom Checker", sub: "AI-powered diagnosis tool" },
-          { to: "/nearby", icon: "📍", title: "Nearby Facilities", sub: "Find health centers near you" },
+          { to: "/products", icon: "", title: "View Inventory", sub: "Browse all medical stock" },
+          { to: "/add-product", icon: "", title: "Log Inbound Stock", sub: "Register new supply batch" },
+          { to: "/symptom-checker", icon: "", title: "Symptom Checker", sub: "AI-powered diagnosis tool" },
+          { to: "/nearby", icon: "", title: "Nearby Facilities", sub: "Find health centers near you" },
         ].map((action) => (
           <Link key={action.to} to={action.to}
             className="bg-white border border-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow text-center group">
