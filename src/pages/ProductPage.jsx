@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ProductCard from "../components/ProductCard";
 
+
 function ProductPage({ products, onUpdate, onDelete }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [filter, setFilter] = useState("all");
