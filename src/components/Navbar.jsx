@@ -38,7 +38,7 @@ function Navbar() {
         </div>
 
         {/* Nav Links */}
-        <div className="flex items-center gap-5 flex-wrap justify-center sm:justify-start order-first sm:order-0">
+        <div className="flex items-center gap-5 flex-wrap justify-center sm:justify-start order-first sm:order-0 h-20">
           <NavLink to="/" end className={linkStyle}>
             Dashboard
           </NavLink>
@@ -46,7 +46,7 @@ function Navbar() {
             Inventory
           </NavLink>
           <NavLink to="/add-product" className={linkStyle}>
-            <Plus size={15}/> Log Stock
+            <Plus size={15} /> Log Stock
           </NavLink>
           <NavLink to="/symptom-checker" className={linkStyle}>
             <Stethoscope size={15} /> Symptoms
