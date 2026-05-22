@@ -1,122 +1,115 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import ProductPage from "./pages/ProductPage";
+import AddProductForm from "./pages/AddProductForm";
+import SymptomChecker from "./pages/SymptomChecker";
+import NearbyFacilities from "./pages/NearbyFacilities";
+import LoginPage from "./pages/LoginPage";
+import { useFetch } from "./hooks/useFetch";
+import { AuthProvider, useAuth } from "./context/AuthContext";
 
-function App() {
-  const [count, setCount] = useState(0)
+function ProtectedApp() {
+  const { user } = useAuth();
+  const {
+    data: products,
+    setData: setProducts,
+    loading,
+    error,
+  } = useFetch("http://localhost:3001/products");
 
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+  if (!user) return <Navigate to="/login" replace />;
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-medical-bg">
+        <div className="text-center">
+          <div className="w-16 h-16 bg-hospital-teal rounded-2xl flex items-center justify-center mx-auto text-white text-3xl font-black animate-pulse">
+            +
+          </div>
+          <h2 className="text-xl font-bold text-hospital-teal mt-4 animate-pulse">
+            Synchronizing AfyaStock Link...
+          </h2>
+          <p className="text-slate-400 text-sm mt-2">
+            Make sure json-server is running on port 3001
           </p>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      </div>
+    );
+  }
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-medical-bg px-4">
+        <div className="bg-white rounded-2xl shadow p-8 max-w-md w-full text-center border border-red-100">
+          <span className="text-4xl">⚠️</span>
+          <h2 className="text-xl font-black text-slate-900 mt-4">Server not running</h2>
+          <p className="text-slate-500 text-sm mt-2">Please start the JSON server with:</p>
+          <code className="block bg-slate-100 rounded-lg px-4 py-3 mt-3 text-sm text-slate-700 font-mono text-left">
+            npx json-server --watch db.json --port 3001
+          </code>
+          <button
+            onClick={() => window.location.reload()}
+            className="mt-4 bg-hospital-teal text-white font-bold px-6 py-2 rounded-lg hover:bg-teal-800 cursor-pointer text-sm"
+          >
+            Retry
+          </button>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      </div>
+    );
+  }
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+  function handleAddProduct(newProduct) {
+    setProducts([...(products || []), newProduct]);
+  }
+
+  function handleUpdateProduct(updated) {
+    setProducts((products || []).map((p) => (p.id === updated.id ? updated : p)));
+  }
+
+  function handleDeleteProduct(id) {
+    setProducts((products || []).filter((p) => p.id !== id));
+  }
+
+  return (
+    <div className="min-h-screen bg-medical-bg">
+      <Navbar />
+      <main className="max-w-7xl mx-auto px-4 py-8">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/products"
+            element={
+              <ProductPage
+                products={products || []}
+                onUpdate={handleUpdateProduct}
+                onDelete={handleDeleteProduct}
+              />
+            }
+          />
+          <Route
+            path="/add-product"
+            element={<AddProductForm onAddProduct={handleAddProduct} />}
+          />
+          <Route path="/symptom-checker" element={<SymptomChecker />} />
+          <Route path="/nearby" element={<NearbyFacilities />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </main>
+    </div>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <AuthProvider>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/*" element={<ProtectedApp />} />
+      </Routes>
+    </AuthProvider>
+  );
+}
+
+export default App;
