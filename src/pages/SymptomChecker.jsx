@@ -51,14 +51,14 @@ function SymptomChecker() {
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-r from-hospital-teal to-teal-600 text-white rounded-2xl p-6 shadow-md">
-        <h2 className="text-2xl font-black">🩺 Symptom Checker</h2>
+      <div className="bg-linear-to-r from-hospital-teal to-teal-600 text-white rounded-2xl p-6 shadow-md">
+        <h2 className="text-2xl font-black">Symptom Checker</h2>
         <p className="text-teal-100 text-sm mt-1">
           Select your symptoms below. Our diagnostic engine will identify
           possible conditions and recommend immediate action.
         </p>
         <div className="mt-3 bg-white/20 rounded-lg px-3 py-2 text-xs text-teal-100">
-          ⚠️ This tool is for guidance only and does not replace professional
+          This tool is for guidance only and does not replace professional
           medical diagnosis.
         </div>
       </div>
@@ -91,7 +91,6 @@ function SymptomChecker() {
                   : "bg-slate-50 text-slate-700 border-slate-200 hover:border-hospital-teal hover:text-hospital-teal"
               }`}
             >
-              {selected.includes(symptom) ? "✓ " : ""}
               {symptom}
             </button>
           ))}
@@ -122,7 +121,7 @@ function SymptomChecker() {
           onClick={handleDiagnose}
           className="flex-1 bg-hospital-teal text-white font-bold py-3 rounded-xl hover:bg-teal-800 transition-colors cursor-pointer"
         >
-          🔍 Run Diagnosis
+          Run Diagnosis
         </button>
         <button
           onClick={handleReset}
@@ -137,13 +136,12 @@ function SymptomChecker() {
         <div className="space-y-4">
           <h3 className="text-lg font-black text-slate-800">
             {results.length > 0
-              ? "📊 Possible Conditions"
+              ? "Possible Conditions"
               : "No strong matches found"}
           </h3>
 
           {results.length === 0 && (
             <div className="bg-white rounded-xl p-6 border border-dashed border-slate-300 text-center">
-              <span className="text-4xl">🤔</span>
               <p className="text-slate-500 mt-3 text-sm">
                 Your symptoms do not clearly match our database. Please visit
                 the nearest health facility for a professional diagnosis.
@@ -187,7 +185,7 @@ function SymptomChecker() {
                         key={s}
                         className="bg-teal-50 text-teal-700 text-xs font-semibold px-2 py-0.5 rounded-full capitalize border border-teal-100"
                       >
-                        ✓ {s}
+                        {s}
                       </span>
                     ))}
                   </div>
@@ -195,7 +193,7 @@ function SymptomChecker() {
 
                 <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
                   <p className="text-xs font-black uppercase text-amber-700 mb-1">
-                    ⚡ Immediate Action Required
+                    Immediate Action Required
                   </p>
                   <p className="text-sm text-slate-700 leading-relaxed">
                     {condition.immediateAction}
@@ -207,7 +205,7 @@ function SymptomChecker() {
 
           <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center">
             <p className="text-xs text-slate-500">
-              ⚠️ This tool is for guidance only and does not replace
+              This tool is for guidance only and does not replace
               professional medical diagnosis. Always consult a qualified
               healthcare provider.
             </p>

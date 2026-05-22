@@ -50,7 +50,6 @@ function AddProductForm({ onAddProduct }) {
   if (success) {
     return (
       <div className="max-w-lg mx-auto text-center py-24">
-        <div className="text-5xl mb-4">✅</div>
         <h2 className="text-xl font-black text-slate-900">Stock Entry Authorized!</h2>
         <p className="text-slate-500 mt-2">Redirecting to inventory...</p>
       </div>
@@ -119,7 +118,7 @@ function AddProductForm({ onAddProduct }) {
 
           <button type="submit" disabled={submitting}
             className="w-full bg-hospital-teal text-white font-bold py-3 rounded-xl hover:bg-teal-800 transition-colors text-sm disabled:opacity-60 cursor-pointer mt-2">
-            {submitting ? "Saving..." : "✅ Authorize Delivery Entry"}
+            {submitting ? "Saving..." : "Authorize Delivery Entry"}
           </button>
         </form>
       </div>

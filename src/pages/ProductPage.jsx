@@ -46,9 +46,9 @@ function ProductPage({ products, onUpdate, onDelete }) {
         <select value={filter} onChange={(e) => setFilter(e.target.value)}
           className="px-4 py-3 rounded-xl border border-slate-300 shadow-sm text-sm bg-white font-semibold focus:outline-none focus:ring-2 focus:ring-teal-400/30">
           <option value="all">All Stock</option>
-          <option value="critical">🔴 Out of Stock</option>
-          <option value="low">🟠 Low Stock</option>
-          <option value="adequate">🟢 Adequate</option>
+          <option value="critical">Out of Stock</option>
+          <option value="low">Low Stock</option>
+          <option value="adequate">Adequate</option>
         </select>
         <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}
           className="px-4 py-3 rounded-xl border border-slate-300 shadow-sm text-sm bg-white font-semibold focus:outline-none focus:ring-2 focus:ring-teal-400/30">
@@ -69,7 +69,6 @@ function ProductPage({ products, onUpdate, onDelete }) {
           ))
         ) : (
           <div className="col-span-full text-center py-16 bg-white rounded-xl border border-dashed border-slate-300">
-            <span className="text-4xl">🔍</span>
             <p className="text-slate-500 mt-3 font-medium">No items match your search or filter.</p>
             <button onClick={() => { setSearchTerm(""); setFilter("all"); }}
               className="mt-3 text-sm font-bold text-hospital-teal hover:underline">

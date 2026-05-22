@@ -21,10 +21,10 @@ const userIcon = new L.Icon({
 });
 
 const TYPE_LABELS = {
-  hospital: "🏥 Hospital",
-  clinic: "🏨 Clinic",
-  pharmacy: "💊 Pharmacy",
-  health_post: "🏪 Health Post",
+  hospital: "Hospital",
+  clinic: "Clinic",
+  pharmacy: "Pharmacy",
+  health_post: "Health Post",
 };
 
 function NearbyFacilities() {
@@ -103,8 +103,8 @@ function NearbyFacilities() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-r from-clinical-blue to-blue-600 text-white rounded-2xl p-6 shadow-md">
-        <h2 className="text-2xl font-black">📍 Nearby Health Facilities</h2>
+      <div className="bg-linear-to-r from-clinical-blue to-blue-600 text-white rounded-2xl p-6 shadow-md">
+        <h2 className="text-2xl font-black">Nearby Health Facilities</h2>
         <p className="text-blue-100 text-sm mt-1">
           Find hospitals, clinics, and pharmacies within 5km of your current
           location.
@@ -114,7 +114,6 @@ function NearbyFacilities() {
       {/* Enable Location */}
       {!location && (
         <div className="bg-white rounded-xl p-8 border border-slate-100 shadow-sm text-center">
-          <span className="text-5xl">📡</span>
           <h3 className="text-lg font-bold text-slate-800 mt-4">
             Enable Location Access
           </h3>
@@ -127,14 +126,14 @@ function NearbyFacilities() {
             disabled={loading}
             className="mt-6 bg-clinical-blue text-white font-bold px-8 py-3 rounded-xl hover:bg-blue-700 transition-colors disabled:opacity-60 cursor-pointer"
           >
-            {loading ? "Locating you..." : "📍 Find Nearby Facilities"}
+            {loading ? "Locating you..." : "Find Nearby Facilities"}
           </button>
         </div>
       )}
 
       {error && (
         <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl text-sm font-medium">
-          ⚠️ {error}
+          {error}
         </div>
       )}
 
@@ -152,7 +151,7 @@ function NearbyFacilities() {
               />
               <Marker position={[location.lat, location.lng]} icon={userIcon}>
                 <Popup>
-                  <strong>📍 Your Location</strong>
+                  <strong>Your Location</strong>
                 </Popup>
               </Marker>
               <Circle
@@ -171,18 +170,18 @@ function NearbyFacilities() {
                       <strong>{f.name}</strong>
                       <br />
                       <span className="text-slate-500">
-                        {TYPE_LABELS[f.type] || "🏥 Facility"}
+                        {TYPE_LABELS[f.type] || "Facility"}
                       </span>
                       {f.phone && (
                         <>
                           <br />
-                          📞 {f.phone}
+                          {f.phone}
                         </>
                       )}
                       {f.opening_hours && (
                         <>
                           <br />
-                          🕐 {f.opening_hours}
+                          {f.opening_hours}
                         </>
                       )}
                     </div>
@@ -202,7 +201,7 @@ function NearbyFacilities() {
               onClick={getLocation}
               className="text-xs font-bold text-clinical-blue border border-clinical-blue px-4 py-2 rounded-lg hover:bg-blue-50 cursor-pointer"
             >
-              🔄 Refresh
+              Refresh
             </button>
           </div>
 
@@ -224,8 +223,8 @@ function NearbyFacilities() {
                         {f.name}
                       </p>
                       <p className="text-xs text-slate-400 mt-0.5">
-                        {TYPE_LABELS[f.type] || "🏥 Facility"}
-                        {f.phone && ` · 📞 ${f.phone}`}
+                        {TYPE_LABELS[f.type] || "Facility"}
+                        {f.phone && ` · ${f.phone}`}
                       </p>
                     </div>
                     <a

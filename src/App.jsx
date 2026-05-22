@@ -43,7 +43,6 @@ function ProtectedApp() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-medical-bg px-4">
         <div className="bg-white rounded-2xl shadow p-8 max-w-md w-full text-center border border-red-100">
-          <span className="text-4xl">⚠️</span>
           <h2 className="text-xl font-black text-slate-900 mt-4">Server not running</h2>
           <p className="text-slate-500 text-sm mt-2">Please start the JSON server with:</p>
           <code className="block bg-slate-100 rounded-lg px-4 py-3 mt-3 text-sm text-slate-700 font-mono text-left">

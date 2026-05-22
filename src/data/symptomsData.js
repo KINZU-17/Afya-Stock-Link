@@ -14,7 +14,7 @@ export const CONDITIONS = [
     severity: "HIGH",
     immediateAction:
       "Visit the nearest health facility IMMEDIATELY for a rapid diagnostic test (RDT). Do not self-medicate. If confirmed, you will need Artemether-Lumefantrine (ALu) or Artesunate injection for severe cases.",
-    icon: "🦟",
+    icon: "",
   },
   {
     name: "Typhoid Fever",
@@ -31,7 +31,7 @@ export const CONDITIONS = [
     severity: "HIGH",
     immediateAction:
       "Seek medical attention immediately. Avoid self-medication. Maintain oral rehydration. A Widal test will be needed. Treated with Ciprofloxacin or Azithromycin.",
-    icon: "🌡️",
+    icon: "",
   },
   {
     name: "Common Cold",
@@ -47,7 +47,7 @@ export const CONDITIONS = [
     severity: "LOW",
     immediateAction:
       "Rest and drink plenty of fluids. Take Paracetamol for fever. Use steam inhalation for congestion. Visit a clinic if symptoms persist beyond 7 days or worsen.",
-    icon: "🤧",
+    icon: "",
   },
   {
     name: "Pneumonia",
@@ -64,7 +64,7 @@ export const CONDITIONS = [
     severity: "HIGH",
     immediateAction:
       "Go to a health facility URGENTLY. Pneumonia can be life-threatening. You will need a chest X-ray and antibiotics. Do not delay — especially for children and elderly.",
-    icon: "🫁",
+    icon: "",
   },
   {
     name: "Diarrheal Disease",
@@ -80,7 +80,7 @@ export const CONDITIONS = [
     severity: "MEDIUM",
     immediateAction:
       "Start Oral Rehydration Solution (ORS) immediately — mix 1 litre water with 6 teaspoons sugar and half teaspoon salt. Visit a clinic if blood appears in stool or symptoms persist beyond 2 days.",
-    icon: "💊",
+    icon: "",
   },
   {
     name: "Hypertension (High Blood Pressure)",
@@ -96,7 +96,7 @@ export const CONDITIONS = [
     severity: "HIGH",
     immediateAction:
       "Visit a health facility for a blood pressure check. Avoid salty foods and stress. If you experience sudden severe headache or chest pain, go to the emergency unit immediately.",
-    icon: "❤️",
+    icon: "",
   },
   {
     name: "Diabetes (Type 2)",
@@ -112,7 +112,7 @@ export const CONDITIONS = [
     severity: "HIGH",
     immediateAction:
       "Visit a health facility for blood glucose testing. Avoid sugary foods and drinks. If already diagnosed, ensure you take your medication consistently. Seek emergency care for confusion or unconsciousness.",
-    icon: "🩸",
+    icon: "",
   },
   {
     name: "Urinary Tract Infection (UTI)",
@@ -127,7 +127,7 @@ export const CONDITIONS = [
     severity: "MEDIUM",
     immediateAction:
       "Drink plenty of water. Visit a clinic for a urine test and antibiotics prescription (usually Trimethoprim or Nitrofurantoin). Do not ignore — untreated UTI can spread to kidneys.",
-    icon: "🔬",
+    icon: "",
   },
   {
     name: "Cholera",
@@ -142,7 +142,7 @@ export const CONDITIONS = [
     severity: "CRITICAL",
     immediateAction:
       "EMERGENCY — Go to the nearest health facility IMMEDIATELY. Start ORS aggressively. Cholera can cause death within hours from dehydration. Avoid sharing water or utensils.",
-    icon: "🚨",
+    icon: "",
   },
   {
     name: "Tuberculosis (TB)",
@@ -159,7 +159,7 @@ export const CONDITIONS = [
     severity: "HIGH",
     immediateAction:
       "Visit a health facility for a sputum test immediately. TB is curable with a 6-month drug course (DOTS program — free in Kenya). Wear a mask and avoid crowded areas until tested.",
-    icon: "🫀",
+    icon: "",
   },
   {
     name: "Anaemia",
@@ -176,7 +176,7 @@ export const CONDITIONS = [
     severity: "MEDIUM",
     immediateAction:
       "Visit a clinic for a full blood count (FBC) test. Eat iron-rich foods — spinach, liver, beans, red meat. Take iron supplements only as prescribed. Severe anaemia may need transfusion.",
-    icon: "🩺",
+    icon: "",
   },
   {
     name: "Meningitis",
@@ -193,7 +193,7 @@ export const CONDITIONS = [
     severity: "CRITICAL",
     immediateAction:
       "EMERGENCY — Go to hospital IMMEDIATELY. Bacterial meningitis can cause death or permanent disability within 24 hours. Do not wait. This requires IV antibiotics urgently.",
-    icon: "🧠",
+    icon: "",
   },
 ];
 
