@@ -6,20 +6,25 @@ export function useFetch(url) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading(true);
+    let cancelled = false;
     fetch(url)
       .then((r) => {
         if (!r.ok) throw new Error("Failed to reach medical telemetry endpoint.");
         return r.json();
       })
-      .then((data) => {
-        setData(data);
-        setLoading(false);
+      .then((json) => {
+        if (!cancelled) {
+          setData(json);
+          setLoading(false);
+        }
       })
       .catch((err) => {
-        setError(err.message);
-        setLoading(false);
+        if (!cancelled) {
+          setError(err.message);
+          setLoading(false);
+        }
       });
+    return () => { cancelled = true; };
   }, [url]);
 
   return { data, setData, loading, error };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import StockBadge, { getExpiryStatus } from "./StockBadge";
 
 function ProductCard({ product, onUpdate, onDelete }) {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ALL_SYMPTOMS, diagnose } from "../data/symptomsData";
 
 const SEVERITY_STYLES = {
