@@ -103,7 +103,7 @@ function NearbyFacilities() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-r from-clinical-blue to-blue-600 text-white rounded-2xl p-6 shadow-md">
+      <div className="bg-linear-to-r from-clinical-blue to-blue-600 text-white rounded-2xl p-6 shadow-md">
         <h2 className="text-2xl font-black">Nearby Health Facilities</h2>
         <p className="text-blue-100 text-sm mt-1">
           Find hospitals, clinics, and pharmacies within 5km of your current

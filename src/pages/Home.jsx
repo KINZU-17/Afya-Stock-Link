@@ -41,7 +41,7 @@ function Home() {
   return (
     <div className="space-y-8">
       {/* Welcome Banner */}
-      <div className="bg-gradient-to-r from-hospital-teal to-teal-600 text-white rounded-2xl p-6 shadow-md">
+      <div className="bg-linear-to-r from-hospital-teal to-teal-600 text-white rounded-2xl p-6 shadow-md">
         <p className="text-teal-200 text-sm font-semibold">Welcome back</p>
         <h2 className="text-2xl font-black mt-1">{user?.name || "Staff Member"}</h2>
         <p className="text-teal-100 text-sm mt-1">{user?.role} — {facility?.name}</p>
