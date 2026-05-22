@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, Circle } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { Pin, SatelliteDish,TriangleAlert } from "lucide-react";
+import { Pin, SatelliteDish, TriangleAlert } from "lucide-react";
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -104,7 +104,7 @@ function NearbyFacilities() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-r from-clinical-blue to-blue-600 text-white rounded-2xl p-6 shadow-md">
+      <div className="bg-linear-to-r from-clinical-blue to-blue-600 text-white rounded-2xl p-6 shadow-md">
         <h2 className="text-2xl font-black"> Nearby Health Facilities</h2>
         <p className="text-blue-100 text-sm mt-1">
           Find hospitals, clinics, and pharmacies within 5km of your current
@@ -115,7 +115,9 @@ function NearbyFacilities() {
       {/* Enable Location */}
       {!location && (
         <div className="bg-white rounded-xl p-8 border border-slate-100 shadow-sm text-center">
-          <span className="text-5xl flex w-full justify-center"><SatelliteDish /></span>
+          <span className="text-5xl flex w-full justify-center">
+            <SatelliteDish />
+          </span>
           <h3 className="text-lg font-bold text-slate-800 mt-4">
             Enable Location Access
           </h3>
@@ -128,7 +130,7 @@ function NearbyFacilities() {
             disabled={loading}
             className="mt-6 bg-clinical-blue text-white font-bold px-8 py-3 rounded-xl hover:bg-blue-700 transition-colors disabled:opacity-60 cursor-pointer"
           >
-            {loading ? "Locating you..." :"Find Nearby Facilities"}
+            {loading ? "Locating you..." : "Find Nearby Facilities"}
           </button>
         </div>
       )}

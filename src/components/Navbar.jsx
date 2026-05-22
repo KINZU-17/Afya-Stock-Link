@@ -38,7 +38,7 @@ function Navbar() {
         </div>
 
         {/* Nav Links */}
-        <div className="flex items-center gap-5 flex-wrap justify-center sm:justify-start order-first sm:order-none">
+        <div className="flex items-center gap-5 flex-wrap justify-center sm:justify-start order-first sm:order-0">
           <NavLink to="/" end className={linkStyle}>
             Dashboard
           </NavLink>

@@ -72,7 +72,7 @@ function ProductCard({ product, onUpdate, onDelete }) {
       </div>
 
       {/* Content */}
-      <div className="p-5 flex flex-col flex-grow space-y-3">
+      <div className="p-5 flex flex-col grow space-y-3">
         <div>
           <h3 className="text-base font-bold text-slate-900 leading-tight">
             {name}
@@ -83,7 +83,7 @@ function ProductCard({ product, onUpdate, onDelete }) {
           </p>
         </div>
 
-        <p className="text-sm text-slate-500 line-clamp-2 flex-grow">
+        <p className="text-sm text-slate-500 line-clamp-2 grow">
           {description}
         </p>
 
