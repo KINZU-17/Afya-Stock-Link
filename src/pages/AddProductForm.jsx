@@ -50,7 +50,6 @@ function AddProductForm({ onAddProduct }) {
   if (success) {
     return (
       <div className="max-w-lg mx-auto text-center py-24">
-        <div className="text-5xl mb-4">✅</div>
         <h2 className="text-xl font-black text-slate-900">Stock Entry Authorized!</h2>
         <p className="text-slate-500 mt-2">Redirecting to inventory...</p>
       </div>
